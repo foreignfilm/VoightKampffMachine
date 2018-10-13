@@ -4,3 +4,6 @@ version = "0.1.0"
 authors = ["Keith Bauer <onesadcookie@gmail.com>"]
 
 [dependencies]
+dotenv = "~0.13.0"
+pretty_env_logger = "~0.2.4"
+warp = "~0.1.6"
