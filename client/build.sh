@@ -1,1 +1,1 @@
-elm make src/Main.elm --output ../web/index.html
+elm make src/Main.elm --output ../web/index.html --yes
