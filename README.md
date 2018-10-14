@@ -6,12 +6,12 @@ This is a experimental fan project, based on and incoporating the assets from [*
 
 To build:
 
-* elm 0.18 (through homebrew)
+* elm 0.18 (through homebrew, __an old version__)
 * rust 1.29 (through rustup)
 
 ```
 cd client
 ./build.sh
 cd ../server
-cargo run
+RUST_LOG=warp=trace cargo run
 ```

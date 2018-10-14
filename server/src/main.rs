@@ -24,8 +24,8 @@ fn main() {
                     })
             })
         });
-    let routes = elm
-        .or(echo);
+    let routes = echo
+        .or(elm);
 
     let port: u16 = std::env::var("PORT").map_err(|_| ())
         .and_then(|s| <u16 as std::str::FromStr>::from_str(&s).map_err(|_| ()))

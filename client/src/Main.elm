@@ -1,22 +1,50 @@
-import Html exposing (Html, button, div, text)
-import Html.Events exposing (onClick)
+import Html exposing (Html, button, br, input, div, text)
+import Html.Events exposing (onInput, onClick)
+import WebSocket
 
-main =
-  Html.beginnerProgram { model = 0, update = update, view = view }
+type alias Model =
+  { input : String
+  , output : List String
+  }
+type Msg =
+    Append(String)
+  | Type(String)
+  | Send
 
-type Msg = Increment | Decrement
-
+update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
-    Increment ->
-      model + 1
+    Append(s) ->
+      ({ model | output = model.output ++ [s] }, Cmd.none)
+    Type(s) ->
+      ({ model | input = s }, Cmd.none)
+    Send ->
+      ({ model | input = "" }, WebSocket.send "ws://localhost:3030/echo" model.input)
 
-    Decrement ->
-      model - 1
-
+view : Model -> Html Msg
 view model =
   div []
-    [ button [ onClick Decrement ] [ text "-" ]
-    , div [] [ text (toString model) ]
-    , button [ onClick Increment ] [ text "+" ]
+    [ div [] (List.intersperse (br [] []) (List.map text model.output))
+    , input [onInput Type] [
+        text model.input
+      ]
+    , button [onClick Send] [
+        text "Send"
+      ]
     ]
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    WebSocket.listen "ws://localhost:3030/echo" Append
+
+main : Program Never Model Msg
+main =
+  Html.program {
+    init = ({
+      input = "",
+      output = []
+    }, Cmd.none),
+    update = update,
+    view = view,
+    subscriptions = subscriptions
+  }
