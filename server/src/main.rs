@@ -31,5 +31,5 @@ fn main() {
         .and_then(|s| <u16 as std::str::FromStr>::from_str(&s).map_err(|_| ()))
         .unwrap_or(3030);
     warp::serve(routes)
-        .run(([127, 0, 0, 1], port));
+        .run(([0, 0, 0, 0], port));
 }
