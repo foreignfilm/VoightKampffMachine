@@ -82,7 +82,8 @@ fn main() {
     let dump_content = warp::path("dump_content")
         .map(|| {
             let suspect_backgrounds = &*content::suspect_backgrounds;
-            format!("{:?}", suspect_backgrounds)
+            let penalties = &*content::penalties;
+            format!("{:?}\n{:?}", suspect_backgrounds, penalties)
         });
 
     let routes = echo
