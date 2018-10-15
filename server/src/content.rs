@@ -17,7 +17,7 @@ mod path {
         }
     }
 
-    pub fn to(content: ContentCategory, lang: &str) -> String {
+    pub fn resolve(content: ContentCategory, lang: &str) -> String {
         format!("{}/{}/{}", ROOT, lang, content.to_string())
     }
 
@@ -30,7 +30,7 @@ pub struct SuspectBackground {
 
 lazy_static! {
     pub static ref suspect_backgrounds: Vec<SuspectBackground> = {
-        let path = path::to(path::ContentCategory::SuspectBackgrounds, "en");
+        let path = path::resolve(path::ContentCategory::SuspectBackgrounds, "en");
 
         let mut file = File::open(path)
             .expect("suspect_backgrounds content file not found");
@@ -39,7 +39,7 @@ lazy_static! {
         file.read_to_string(&mut contents)
             .expect("something went wrong reading the file");
 
-        return serde_json::from_str(&contents)
+        serde_json::from_str(&contents)
             .expect("something went wrong parsing this")
     };
 }
