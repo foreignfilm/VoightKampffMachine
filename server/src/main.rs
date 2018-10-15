@@ -3,9 +3,12 @@ extern crate pretty_env_logger;
 #[macro_use] extern crate serde_derive;
 extern crate serde_json;
 extern crate warp;
+#[macro_use] extern crate lazy_static;
 
 use warp::{Filter, Future, Stream};
 use warp::filters::ws::Message;
+
+mod content;
 
 #[derive(Deserialize)]
 #[serde(tag = "type")]
@@ -75,7 +78,15 @@ fn main() {
                     })
             })
         });
+
+    let dump_content = warp::path("dump_content")
+        .map(|| {
+            let suspect_backgrounds = &*content::suspect_backgrounds;
+            format!("{:?}", suspect_backgrounds)
+        });
+
     let routes = echo
+        .or(dump_content)
         .or(elm);
 
     let port: u16 = std::env::var("PORT").map_err(|_| ())
