@@ -79,11 +79,16 @@ fn main() {
             })
         });
 
+    // TODO: remove
     let dump_content = warp::path("dump_content")
         .map(|| {
-            let suspect_backgrounds = &*content::suspect_backgrounds;
+            let suspect_notes = &*content::suspect_notes;
             let penalties = &*content::penalties;
-            format!("{:?}\n{:?}", suspect_backgrounds, penalties)
+            format!(
+                "SUSPECT NOTES\n{:?}\n\n \
+                PENALTIES\n{:?}",
+                suspect_notes, penalties
+            )
         });
 
     let routes = echo

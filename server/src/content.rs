@@ -3,17 +3,17 @@ use std::io::prelude::*;
 use serde_json;
 
 pub enum ContentCategory {
-    SuspectBackgrounds, Penalties
+    SuspectNotes, Penalties
 }
 
 mod path {
-    
+
     const ROOT: &str = "../content";
 
     impl super::ContentCategory {
         fn to_string(self) -> String {
             match self {
-                super::ContentCategory::SuspectBackgrounds => "suspect_backgrounds.json".to_string(),
+                super::ContentCategory::SuspectNotes => "suspect_notes.json".to_string(),
                 super::ContentCategory::Penalties => "penalties.json".to_string()
             }
         }
@@ -26,7 +26,7 @@ mod path {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct SuspectBackground {
+pub struct SuspectNote {
     pub title: String,
 }
 
@@ -42,7 +42,7 @@ fn content_json(content: ContentCategory) -> String {
     let path = path::resolve(content, lang);
 
     let mut file = File::open(path)
-        .expect("suspect backgrounds content file not found");
+        .expect("suspect notes content file not found");
 
     let mut content_json_string = String::new();
     file.read_to_string(&mut content_json_string)
@@ -53,8 +53,8 @@ fn content_json(content: ContentCategory) -> String {
 
 lazy_static! {
 
-    pub static ref suspect_backgrounds: Vec<SuspectBackground> = {
-        let content = content_json(ContentCategory::SuspectBackgrounds);
+    pub static ref suspect_notes: Vec<SuspectNote> = {
+        let content = content_json(ContentCategory::SuspectNotes);
         serde_json::from_str(&content)
             .expect("something went wrong parsing this")
     };
