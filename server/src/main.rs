@@ -84,10 +84,14 @@ fn main() {
         .map(|| {
             let suspect_notes = &*content::suspect_notes;
             let penalties = &*content::penalties;
+            let packets = &*content::packets;
+
             format!(
                 "SUSPECT NOTES\n{:?}\n\n \
-                PENALTIES\n{:?}",
-                suspect_notes, penalties
+                PENALTIES\n{:?}\n\n \
+                PACKETS\n{:?}
+                ",
+                suspect_notes, penalties, packets
             )
         });
 
