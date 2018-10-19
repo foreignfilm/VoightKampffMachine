@@ -149,7 +149,6 @@ convert_inhumanity!(());
 convert_inhumanity!(serde_json::Error);
 convert_inhumanity!(warp::Error);
 convert_inhumanity!(std::string::FromUtf8Error);
-convert_inhumanity!(T, std::sync::PoisonError<T>);
 
 fn handle_client_message(
     db: DB,
@@ -164,7 +163,7 @@ fn handle_client_message(
     trace!("received {:?}", command);
     match command {
         LogInAsSuspect => {
-            let mut bureau = db.lock()?;
+            let mut bureau = db.lock().unwrap();
             let suspect_id = bureau.new_game(cid);
             trace!("assigned suspect_id {:?} to cid {:?}", suspect_id, cid);
             bureau.send(
@@ -176,7 +175,7 @@ fn handle_client_message(
             Ok(Some(suspect_id))
         }
         LogInAsInvestigator { suspect_id } => {
-            let mut bureau = db.lock()?;
+            let mut bureau = db.lock().unwrap();
             {
                 let game = bureau.game(&suspect_id).ok_or(InhumanityError)?;
                 if game.investigator_cid.is_some() {
@@ -195,7 +194,7 @@ fn handle_client_message(
             Ok(Some(suspect_id))
         }
         InvestigatorShout { message } => {
-            let mut bureau = db.lock()?;
+            let mut bureau = db.lock().unwrap();
             let suspect_id = suspect_id.ok_or(InhumanityError)?;
             let (investigator_cid, suspect_cid) = {
                 let game = bureau.game(&suspect_id).ok_or(InhumanityError)?;
@@ -240,7 +239,7 @@ fn main() {
                 let db3 = db.clone(); // gross
                 futures::future::ok(())
                     .and_then(move |_: ()| -> Result<ConnectionId, InhumanityError> {
-                        let mut bureau = db1.lock()?;
+                        let mut bureau = db1.lock().unwrap();
                         let cid = bureau.connect(tx.wait());
                         bureau.send(cid, ServerCommand::Connected)?;
                         trace!("connected as {:?}", cid);
@@ -248,7 +247,7 @@ fn main() {
                     }).and_then(move |cid| {
                         rx.map_err(move |e| {
                             eprintln!("websocket error: {:?}", e);
-                            db2.lock().ok().map(|mut bureau| bureau.disconnect(cid));
+                            db2.lock().unwrap().disconnect(cid);
                             InhumanityError
                         }).fold(None, move |suspect_id, message| {
                             handle_client_message(db3.clone(), cid, suspect_id, message)
