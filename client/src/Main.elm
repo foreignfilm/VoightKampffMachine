@@ -1,3 +1,5 @@
+module Main exposing (main)
+
 import Html exposing (Html, br, button, div, input, text)
 import Html.Events exposing (onClick, onInput)
 import Json.Decode exposing (Decoder, int, oneOf, string)
@@ -144,13 +146,13 @@ update msg model =
                             )
 
                         _ ->
+                            -- or what? show an error?
                             ( model, Cmd.none )
 
-        -- or what? show an error?
         ServerError ->
+            -- could consider displaying it on the client?
             ( model, Cmd.none )
 
-        -- could consider displaying it on the client?
         SuspectLogin ->
             ( model, sendClientCommand LogInAsSuspect )
 
@@ -160,18 +162,18 @@ update msg model =
                     ( Login { login | suspectId = suspectId }, Cmd.none )
 
                 _ ->
+                    -- or what? show an error?
                     ( model, Cmd.none )
 
-        -- or what? show an error?
         InvestigatorLogin ->
             case model of
                 Login login ->
                     ( model, sendClientCommand (LogInAsInvestigator { suspectId = login.suspectId }) )
 
                 _ ->
+                    -- or what? show an error?
                     ( model, Cmd.none )
 
-        -- or what? show an error?
         Type s ->
             case model of
                 Investigator investigator ->
@@ -183,20 +185,17 @@ update msg model =
                     )
 
                 _ ->
+                    -- or what? show an error?
                     ( model, Cmd.none )
 
-        -- or what? show an error?
         Send ->
             case model of
                 Investigator investigator ->
                     ( Investigator { investigator | input = "" }, sendClientCommand (InvestigatorShout { message = investigator.input }) )
 
                 _ ->
+                    -- or what? show an error?
                     ( model, Cmd.none )
-
-
-
--- or what? show an error?
 
 
 view : Model -> Html Msg
