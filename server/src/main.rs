@@ -17,28 +17,11 @@ use std::sync::{Arc, Mutex};
 use warp::filters::ws::{Message, WebSocket};
 use warp::{Filter, Future, Stream};
 
-#[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
-struct SuspectId(String);
+mod commands;
+use commands::*;
 
 #[derive(Clone, Debug, Copy, Eq, Hash, PartialEq, Serialize, Deserialize)]
 struct ConnectionId(u64);
-
-#[derive(Debug, Deserialize)]
-#[serde(tag = "type")]
-enum ClientCommand {
-    LogInAsSuspect,
-    LogInAsInvestigator { suspect_id: SuspectId },
-    InvestigatorShout { message: String },
-}
-
-#[derive(Debug, Serialize)]
-#[serde(tag = "type")]
-enum ServerCommand {
-    Connected,
-    BecomeSuspect { suspect_id: SuspectId },
-    BecomeInvestigator { suspect_id: SuspectId },
-    Echo { message: String },
-}
 
 struct Game {
     suspect_cid: ConnectionId,
