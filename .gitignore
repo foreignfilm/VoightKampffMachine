@@ -1,2 +1,4 @@
 web
 client/elm-stuff/*
+client/src/Commands.elm
+server/src/commands.rs

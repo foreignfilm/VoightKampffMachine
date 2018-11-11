@@ -7,11 +7,14 @@ This is a experimental fan project, based on and incoporating the assets from [*
 To build:
 
 * elm 0.18 (through homebrew, __an old version__)
-* rust 1.29 (through rustup)
+* rust 1.29+ (through rustup)
+* ruby
 
 ```
+./models.rb
 cd client
 ./build.sh
 cd ../server
-RUST_LOG=warp=trace cargo run
+echo 'RUST_LOG=warp=trace,server=trace' > .env
+cargo run
 ```

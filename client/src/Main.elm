@@ -2,27 +2,11 @@ module Main exposing (main)
 
 import Html exposing (Html, br, button, div, input, text)
 import Html.Events exposing (onClick, onInput)
-import Json.Decode exposing (Decoder, int, oneOf, string)
-import Json.Decode.Pipeline exposing (decode, required)
+import Json.Decode
 import Json.Encode
 import WebSocket
 
-
-type alias SuspectId =
-    String
-
-
-type ServerCommand
-    = Connected
-    | BecomeSuspect { suspectId : SuspectId }
-    | BecomeInvestigator { suspectId : SuspectId }
-    | Echo { message : String }
-
-
-type ClientCommand
-    = LogInAsSuspect
-    | LogInAsInvestigator { suspectId : SuspectId }
-    | InvestigatorShout { message : String }
+import Commands exposing (SuspectId, ServerCommand(..), ClientCommand(..), encodeClientCommand, serverCommandDecoder)
 
 
 type Model
@@ -48,55 +32,6 @@ type Msg
     | InvestigatorLogin
     | Type String
     | Send
-
-
-serverCommandFieldDecoder : String -> Decoder ServerCommand
-serverCommandFieldDecoder t =
-    case t of
-        "Connected" ->
-            Json.Decode.succeed Connected
-
-        "BecomeSuspect" ->
-            decode (\suspectId -> BecomeSuspect { suspectId = suspectId })
-                |> required "suspect_id" string
-
-        "BecomeInvestigator" ->
-            decode (\suspectId -> BecomeInvestigator { suspectId = suspectId })
-                |> required "suspect_id" string
-
-        "Echo" ->
-            decode (\message -> Echo { message = message })
-                |> required "message" string
-
-        _ ->
-            Json.Decode.fail "Unexpected type"
-
-
-serverCommandDecoder : Decoder ServerCommand
-serverCommandDecoder =
-    Json.Decode.field "type" string
-        |> Json.Decode.andThen serverCommandFieldDecoder
-
-
-encodeClientCommand : ClientCommand -> Json.Encode.Value
-encodeClientCommand command =
-    case command of
-        LogInAsSuspect ->
-            Json.Encode.object
-                [ ( "type", Json.Encode.string "LogInAsSuspect" )
-                ]
-
-        LogInAsInvestigator logInAsInvestigator ->
-            Json.Encode.object
-                [ ( "type", Json.Encode.string "LogInAsInvestigator" )
-                , ( "suspect_id", Json.Encode.string logInAsInvestigator.suspectId )
-                ]
-
-        InvestigatorShout shout ->
-            Json.Encode.object
-                [ ( "type", Json.Encode.string "InvestigatorShout" )
-                , ( "message", Json.Encode.string shout.message )
-                ]
 
 
 sendClientCommand : ClientCommand -> Cmd Msg
