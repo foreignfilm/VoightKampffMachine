@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Share a plan for some time in the next seven days",
+        "example_question1": "What are you doing this weekend?",
+        "example_question2": "How will tomorrow be different from today?"
+    },
+    {
+        "prompt": "Describe a project or task they worked on recently",
+        "example_question1": "What did you do today?",
+        "example_question2": "What have you read or played recently that you would recommend?"
+    },
+    {
+        "prompt": "Share a conversation they had recently or expect to have",
+        "example_question1": "Who first did you talk to first day?",
+        "example_question2": "Tell me about someone you work with."
+    }
+]

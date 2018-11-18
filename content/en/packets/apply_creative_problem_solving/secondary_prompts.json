@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Describe a second, different solution to a problem",
+        "example_question1": "How else would you solve it?",
+        "example_question2": "What if you couldn’t get the resources that solution would require?"
+    },
+    {
+        "prompt": "Solve a problem again with an additional obstacle",
+        "example_question1": "Could you improvise a solution using only a screwdriver?",
+        "example_question2": "What if you had to do it without hands?"
+    },
+    {
+        "prompt": "Explain their thought process in arriving at a solution",
+        "example_question1": "How did you arrive at that solution?",
+        "example_question2": "What’s a solution you thought of, but rejected, along the way?"
+    }
+]

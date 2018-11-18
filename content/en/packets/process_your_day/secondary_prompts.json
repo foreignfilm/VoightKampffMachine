@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Guess what another person might have thought",
+        "example_question1": "Tell me if the other person thought the conversation went badly or well.",
+        "example_question2": "How did the people you were with see it?"
+    },
+    {
+        "prompt": "Describe something they enjoyed or expect to enjoy",
+        "example_question1": "What was a fun thing you dead while you were there?",
+        "example_question2": "What hobbies or leisure activities do you plan to engage in this weekend?"
+    },
+    {
+        "prompt": "Describe a challenge they recently faced",
+        "example_question1": "What was the hardest part of that conversation?",
+        "example_question2": "What did you struggle with today?"
+    }
+]

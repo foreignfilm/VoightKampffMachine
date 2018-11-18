@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Explain the implications of something the suspect came up",
+        "example_question1": "If you the thing you described existed, what else would exist?",
+        "example_question2": "What would it be like to interact with the thing you’ve invented?"
+    },
+    {
+        "prompt": "Imagine something again with an extra constraint",
+        "example_question1": "Now tell the story from the perspective of the horse…",
+        "example_question2": "Now describ the place again, in only six words."
+    },
+    {
+        "prompt": "Describe the opposite of something the suspect has already described",
+        "example_question1": "Now tell the same story, but with a tragic ending.",
+        "example_question2": "And what magical power does your arch nemesis have?"
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Describe the same situation, but focusing on a specific body part",
+        "example_question1": "Okay, how do your feet feel while that’s happening?",
+        "example_question2": "What is was your heartbeat like during that experience?"
+    },
+    {
+        "prompt": "Explain how the suspect would prepare someone else for the same experience",
+        "example_question1": "How would you teach someone else to juggle?",
+        "example_question2": "How would you teach a child to stand completely still?"
+    },
+    {
+        "prompt": "Describe a sensory aspect of an experience that the suspect has not already mentioned",
+        "example_question1": "And how would it smell if you were on fire?",
+        "example_question2": "What do you think it would be like to be the ball being juggled?"
+    }
+]
