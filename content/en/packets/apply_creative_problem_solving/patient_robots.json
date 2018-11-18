@@ -1,0 +1,18 @@
+[
+    {
+        "vulnerability": "Complexity",
+        "vulnerability_description": "Any problem you solve, you must solve in two steps or less."
+    },
+    {
+        "vulnerability": "Simplicity",
+        "vulnerability_description": "You may not describe yourself accomplishing a goal with fewer than three steps."
+    },
+    {
+        "vulnerability": "Activity",
+        "vulnerability_description": "You may not describe yourself taking any physical action. You may use the hypothetical “you.”"
+    },
+    {
+        "vulnerability": "Improvisation",
+        "vulnerability_description": "You may not describe any solution that is unrelated to your Suspect Note."
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "vulnerability": "Continuity",
+        "vulnerability_description": "Once you have mentioned an event, person, or goal, you may never mention it again."
+    },
+    {
+        "vulnerability": "Improvement",
+        "vulnerability_description": "You may not describe anything getting better than it is at this moment."
+    },
+    {
+        "vulnerability": "Other Times",
+        "vulnerability_description": "You may not use verbs in the past or future tenses."
+    }
+]

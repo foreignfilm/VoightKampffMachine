@@ -1,0 +1,14 @@
+[
+    {
+        "vulnerability": "Internality",
+        "vulnerability_description": "You may only describe thigns that would be visible to an outside observer."
+    },
+    {
+        "vulnerability": "Corporeal Integration",
+        "vulnerability_description": "Once you have mentioned a part of your body, that is the only part of your body you may mention until the end of the round."
+    },
+    {
+        "vulnerability": "Externality",
+        "vulnerability_description": "You may not describe anything that would be directly visible to an outside observer."
+    }
+]
