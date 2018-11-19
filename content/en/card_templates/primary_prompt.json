@@ -1,0 +1,7 @@
+{
+    "is_primary": true,
+    "title": "Primary",
+    "pre_prompt": "Suspect must",
+    "post_prompt": "to be human",
+    "questions_label": "Suggested prompts"
+}

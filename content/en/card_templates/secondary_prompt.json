@@ -1,0 +1,8 @@
+{
+    "is_secondary": true,
+    "title": "2nd-ary",
+    "pre_prompt": "Suspect must",
+    "pre_prompt_extra": "while fulfilling another prompt",
+    "post_prompt": "to be human",
+    "questions_label": "Suggested prompts"
+}
