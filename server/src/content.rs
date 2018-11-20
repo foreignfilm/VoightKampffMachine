@@ -101,16 +101,12 @@ pub struct ViolentRobot {
     pub obsession: String,
     pub objective1: String,
     pub objective2: String,
-    #[serde(skip_deserializing, default)]
-    pub card_template: ViolentRobotRoleCardTemplate
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct PatientRobot {
     pub vulnerability: String,
     pub vulnerability_description: String,
-    #[serde(skip_deserializing, default)]
-    pub card_template: PatientRobotRoleCardTemplate
 }
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -121,14 +117,6 @@ pub struct ViolentRobotRoleCardTemplate {
     pub footnote: String
 }
 
-impl Default for ViolentRobotRoleCardTemplate {
-    fn default() -> Self {
-        use content;
-        // FIXME: could this be a reference?
-        content::violent_robot_role_card_template.clone()
-    }
-}
-
 #[derive(Serialize, Deserialize, Clone)]
 pub struct PatientRobotRoleCardTemplate {
     pub title: String,
@@ -136,22 +124,11 @@ pub struct PatientRobotRoleCardTemplate {
     pub footnote: String
 }
 
-impl Default for PatientRobotRoleCardTemplate {
-    fn default() -> Self {
-        use content;
-        // FIXME: could this be a reference?
-        content::patient_robot_role_card_template.clone()
-    }
-}
-
 #[derive(Serialize, Deserialize)]
 pub struct Prompt {
     pub prompt: String,
     pub example_question1: String,
     pub example_question2: String,
-
-    #[serde(skip_deserializing)]
-    pub card_template: PromptCardTemplate
 }
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -181,7 +158,7 @@ impl Default for PromptCardTemplate {
 
 // Content retrieval methods
 
-pub fn violent_robots(packet_name: String) -> Vec<ViolentRobot> { 
+pub fn violent_robots(packet_name: String) -> Vec<(ViolentRobot, ViolentRobotRoleCardTemplate)> { 
     // TODO: localisation support?
     let lang = "en";
     path::parse_from_file(
@@ -247,9 +224,7 @@ lazy_static! {
             .collect::<Vec<Packet>>();
     };
 
-    // Private
-
-    static ref human_role_card_template: HumanRoleCardTemplate = {
+    pub static ref human_role_card_template: HumanRoleCardTemplate = {
         // TODO: localisation support?
         let lang = "en";
         path::parse_from_file(
@@ -257,7 +232,7 @@ lazy_static! {
         )
     };
 
-    static ref violent_robot_role_card_template: ViolentRobotRoleCardTemplate = {
+    pub static ref violent_robot_role_card_template: ViolentRobotRoleCardTemplate = {
         // TODO: localisation support?
         let lang = "en";
         path::parse_from_file(
@@ -265,7 +240,7 @@ lazy_static! {
         )
     };
 
-    static ref patient_robot_role_card_template: PatientRobotRoleCardTemplate = {
+    pub static ref patient_robot_role_card_template: PatientRobotRoleCardTemplate = {
         // TODO: localisation support?
         let lang = "en";
         path::parse_from_file(
@@ -273,7 +248,7 @@ lazy_static! {
         )
     };
 
-    static ref primary_prompt_card_template: PromptCardTemplate = {
+    pub static ref primary_prompt_card_template: PromptCardTemplate = {
         // TODO: localisation support?
         let lang = "en";
         path::parse_from_file(
@@ -281,7 +256,7 @@ lazy_static! {
         )
     };
 
-    static ref secondary_prompt_card_template: PromptCardTemplate = {
+    pub static ref secondary_prompt_card_template: PromptCardTemplate = {
         // TODO: localisation support?
         let lang = "en";
         path::parse_from_file(

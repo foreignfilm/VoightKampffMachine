@@ -253,6 +253,7 @@ fn main() {
         });
 
     let data = warp::path("data").and(warp::get2());
+
     let suspect_notes = warp::path("suspect_notes")
         .map(|| {
             warp::reply::json(&*content::suspect_notes)
@@ -261,6 +262,35 @@ fn main() {
         .map(|| {
             warp::reply::json(&*content::penalties)
         });
+
+    let card_templates = warp::path("card_templates");
+    let human_role_card_template = card_templates.and(warp::path("human"))
+        .map(|| {
+            warp::reply::json(&*content::human_role_card_template)
+        });
+    let violent_robot_role_card_template = card_templates.and(warp::path("violent_robot"))
+        .map(|| {
+            warp::reply::json(&*content::violent_robot_role_card_template)
+        });
+    let patient_robot_role_card_template = card_templates.and(warp::path("patient_robot"))
+        .map(|| {
+            warp::reply::json(&*content::patient_robot_role_card_template)
+        });
+    let primary_prompt_card_template = card_templates.and(warp::path("primary_prompt"))
+        .map(|| {
+            warp::reply::json(&*content::primary_prompt_card_template)
+        });
+    let secondary_prompt_card_template = card_templates.and(warp::path("secondary_prompt"))
+        .map(|| {
+            warp::reply::json(&*content::secondary_prompt_card_template)
+        });
+
+    let card_template_routes = human_role_card_template
+        .or(violent_robot_role_card_template)
+        .or(patient_robot_role_card_template)
+        .or(primary_prompt_card_template)
+        .or(secondary_prompt_card_template);
+
     let packets = warp::path("packets")
         .map(|| {
             warp::reply::json(&*content::packets)
@@ -284,6 +314,7 @@ fn main() {
 
     let data_dump = data.and(
         suspect_notes.or(penalties)
+        .or(card_template_routes)
         .or(violent_robots).or(patient_robots)
         .or(primary_prompts).or(secondary_prompts)
         .or(packets)
