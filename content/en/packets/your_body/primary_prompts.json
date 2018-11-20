@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Describe a physical sensation the suspect has not experienced",
+        "example_question1": "What would it feel like to be completely on fire?",
+        "example_question2": "How do you think it would feel to learn how to use a tail?"
+    },
+    {
+        "prompt": "Describe the physical experience of learning a skill",
+        "example_question1": "What mistakes did you make when learning to ride a bike?",
+        "example_question2": "What would be the hardest part about learning to juggle?"
+    },
+    {
+        "prompt": "Describe a common or frequent physical sensation",
+        "example_question1": "What does it feel like to get dressed in the morning?",
+        "example_question2":  "What does it feel like to stand completely still?"
+    }
+]

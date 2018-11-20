@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Describe a time someone the suspect cared about was sad",
+        "example_question1": "What was the last thing that made your father cry?",
+        "example_question2": "What was the most difficult decision your parents ever had to make?"
+    },
+    {
+        "prompt": "Explain how the suspect felt when they gained something they didn’t want",
+        "example_question1": "How did you react when your parents explained death to you?",
+        "example_question2": "Tell me about a time you found out you were sick, and how you reacted."
+    },
+    {
+        "prompt": "Explain how it felt to lose something/someone precious to the suspect",
+        "example_question1": "What was the hardest goodbye you’ve ever had to say? How did you cope?",
+        "example_question2":  "Tell me about a goal that you had to abandon"
+    }
+]

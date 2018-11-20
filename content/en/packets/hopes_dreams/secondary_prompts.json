@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Explain how one of their goals has changed over time",
+        "example_question1": "Once you realized that was unrealistic, what did you do?",
+        "example_question2": "How did your goals change once you realized the financial implications?"
+    },
+    {
+        "prompt": "Describe an obstacle they expect to face, related to one of their aspirations",
+        "example_question1": "What might prevent you from achieving that?",
+        "example_question2": "What will you have to give up to accomplish that?"
+    },
+    {
+        "prompt": "Describe what their goals will be once they achieve a current call",
+        "example_question1": "Okay. And then what?",
+        "example_question2": "What new capabilities would that achievement grant you?"
+    }
+]

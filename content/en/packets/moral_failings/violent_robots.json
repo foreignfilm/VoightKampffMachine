@@ -1,0 +1,17 @@
+[
+    {
+        "obsession": "Criminality",
+        "objective1": "Confess to a crime in response to 3 different questions.",
+        "objective2": "Accuse 2 other people of comitting crimes."
+    },
+    {
+        "obsession": "Religion",
+        "objective1": "Mention any god or higher power, 3 times.",
+        "objective2": "Quote some religious text, 2 times."
+    },
+    {
+        "obsession": "Redemption",
+        "objective1": "Describe the positive consequences of 3 actions.",
+        "objective2": "Describe how 2 different people forgave or will forgive you."
+    }
+]

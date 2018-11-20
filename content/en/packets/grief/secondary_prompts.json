@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Explain how the suspect overcame an experience",
+        "example_question1": "When did you know you were going to be okay?",
+        "example_question2": "Tell me about something that helped you get through that experience."
+    },
+    {
+        "prompt": "Share something the suspect learned from the experience",
+        "example_question1": "What did that feeling teach you to appreciate?",
+        "example_question2": "Why do you think that thing happened the way that it did?"
+    },
+    {
+        "prompt": "Explain how an event affected someone else",
+        "example_question1": "Who was hurt worse than you?",
+        "example_question2": "Whom do you wish had been hurt more?"
+    }
+]

@@ -1,0 +1,20 @@
+Role {
+    title: String
+    instructions: [String]
+    note: String
+}
+
+Human: Role {
+    // nothing
+}
+
+ViolentRobot: Role {
+    obsession: String
+    objective1: String
+    objective2: String
+}
+
+PatientRobot: Role {
+    vulnerability: String
+    vulnerabilityDescription: String
+}

@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Describe a new thing of a given type",
+        "example_question1": "If you could have any magical power, what would it be?",
+        "example_question2": "What’s a question I should have asked you, but haven’t?"
+    },
+    {
+        "prompt": "Describe something the suspect has never seen",
+        "example_question1": "What would it be like to walk on a distant planet?",
+        "example_question2": "Describe an impossible shape for me."
+    },
+    {
+        "prompt": "Continue a story you start",
+        "example_question1": "Once upon a time, and mouse, a bird, and a sausage joined forces…",
+        "example_question2": "I didn’t want to kill him, but"
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "obsession": "Animals",
+        "objective1": "Mention an animal in response to 3 different questions.",
+        "objective2": "Make an animal noise. (If this completes your obsession, wait 30 seconds to stand up.)"
+    },
+    {
+        "obsession": "Thoroughness",
+        "objective1": "3 times, interrupt the Investigator to add detail to a description.",
+        "objective2": "Continue to describe something until interrupted."
+    },
+    {
+        "obsession": "Conflict",
+        "objective1": "Describe 3 verbal disagreements you’ve had.",
+        "objective2": "Insult the Investigator, 2 times."
+    }
+]

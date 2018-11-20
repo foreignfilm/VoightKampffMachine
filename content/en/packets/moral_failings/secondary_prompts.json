@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Explain how the suspect sought forgiveness for a bad thing they did",
+        "example_question1": "What did you do to make it up to the person you hurt?",
+        "example_question2": "What led you to forgive yourself?"
+    },
+    {
+        "prompt": "Explain the suspect’s motivation for doing a bad thing",
+        "example_question1": "What did you tell yourself at the time to make it seem okay?",
+        "example_question2": "Why don’t the ends justify the means here?"
+    },
+    {
+        "prompt": "Explain why something the suspect did was bad",
+        "example_question1": "What were the negative consequences of what you did?",
+        "example_question2": "How do you know that was wrong?"
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "obsession": "Sense Memory",
+        "objective1": "Choose 2 of the 5 senses. Use that sense in 4 descriptions.",
+        "objective2": "Choose another sense. Use that sense in 4 descriptions, too."
+    },
+    {
+        "obsession": "Organs",
+        "objective1": "Mention 3 internal organs, besides your heart and lungs.",
+        "objective2": "Mention 3 different bodily fluids."
+    },
+    {
+        "obsession": "Malady",
+        "objective1": "Mention a different illness in response to 3 questions.",
+        "objective2": "Cough or sneeze. (If this completes your obsession, wait 30 seconds to stand up.)"
+    }
+]

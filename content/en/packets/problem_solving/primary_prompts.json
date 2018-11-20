@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Describe at least five different uses for an ordinary object",
+        "example_question1": "How many uses for a paperclip can you come up with?",
+        "example_question2": "What do you think is the most versatile household object, and why?"
+    },
+    {
+        "prompt": "Overcome an unusual obstacle",
+        "example_question1": "You are in a kitchen, holding a small child. A dish towel catches fire. How do you put it out?",
+        "example_question2": "You are in a landslide. How do you survive?"
+    },
+    {
+        "prompt": " Solve an apparently unsolvable problem",
+        "example_question1": "You wake up in the room with four seamless walls, an infinitely thick celing and floor. How do you escape?",
+        "example_question2":  "I’m going to tell the apartment you’re a robot, and there is nothing you can do about it. What now?"
+    }
+]

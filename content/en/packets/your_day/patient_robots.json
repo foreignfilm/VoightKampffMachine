@@ -1,0 +1,14 @@
+[
+    {
+        "vulnerability": "Familiarity",
+        "vulnerability_description": "You may not mention any people other than strangers or enemies."
+    },
+    {
+        "vulnerability": "Long Term Memory",
+        "vulnerability_description": "You may not discuss anything that happened before you woke up this morning."
+    },
+    {
+        "vulnerability": "Evaluation",
+        "vulnerability_description": "You may not express opinions. You may only state observable facts."
+    }
+]

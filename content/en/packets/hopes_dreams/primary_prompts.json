@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Share a childhood aspiration",
+        "example_question1": "What did you want to be when you grow up?",
+        "example_question2": "What was your favorite museum that you visted a child?"
+    },
+    {
+        "prompt": "Describe a vision of themselves some distance in the future",
+        "example_question1": "Where do you see yourself in five years?",
+        "example_question2": "What are you going to do if you survive this interview?"
+    },
+    {
+        "prompt": "Explain their heart’s desire and the reasoning behind it",
+        "example_question1": "A genie grants you one wish. What do you wish for, and why?",
+        "example_question2": "What do you hope to provide for your children that you didn’t have?"
+    }
+]

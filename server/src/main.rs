@@ -8,6 +8,8 @@ extern crate rand;
 extern crate serde_derive;
 extern crate serde_json;
 extern crate warp;
+#[macro_use]
+extern crate lazy_static;
 
 use futures::sink::Wait;
 use futures::stream::SplitSink;
@@ -19,6 +21,8 @@ use warp::{Filter, Future, Stream};
 
 mod commands;
 use commands::*;
+
+mod content;
 
 #[derive(Clone, Debug, Copy, Eq, Hash, PartialEq, Serialize, Deserialize)]
 struct ConnectionId(u64);
@@ -247,7 +251,76 @@ fn main() {
                     })
             })
         });
-    let routes = inhumanity.or(elm);
+
+    let data = warp::path("data").and(warp::get2());
+
+    let suspect_notes = warp::path("suspect_notes")
+        .map(|| {
+            warp::reply::json(&*content::suspect_notes)
+        });
+    let penalties = warp::path("penalties")
+        .map(|| {
+            warp::reply::json(&*content::penalties)
+        });
+
+    let card_templates = warp::path("card_templates");
+    let human_role_card_template = card_templates.and(warp::path("human"))
+        .map(|| {
+            warp::reply::json(&*content::human_role_card_template)
+        });
+    let violent_robot_role_card_template = card_templates.and(warp::path("violent_robot"))
+        .map(|| {
+            warp::reply::json(&*content::violent_robot_role_card_template)
+        });
+    let patient_robot_role_card_template = card_templates.and(warp::path("patient_robot"))
+        .map(|| {
+            warp::reply::json(&*content::patient_robot_role_card_template)
+        });
+    let primary_prompt_card_template = card_templates.and(warp::path("primary_prompt"))
+        .map(|| {
+            warp::reply::json(&*content::primary_prompt_card_template)
+        });
+    let secondary_prompt_card_template = card_templates.and(warp::path("secondary_prompt"))
+        .map(|| {
+            warp::reply::json(&*content::secondary_prompt_card_template)
+        });
+
+    let card_template_routes = human_role_card_template
+        .or(violent_robot_role_card_template)
+        .or(patient_robot_role_card_template)
+        .or(primary_prompt_card_template)
+        .or(secondary_prompt_card_template);
+
+    let packets = warp::path("packets")
+        .map(|| {
+            warp::reply::json(&*content::packets)
+        });
+    let violent_robots = packets.and(warp::path::param()).and(warp::path("violent_robots"))
+        .map(|_, packet_name: String| {
+            warp::reply::json(&content::violent_robots(packet_name))
+        });
+    let patient_robots = packets.and(warp::path::param()).and(warp::path("patient_robots"))
+        .map(|_, packet_name: String| {
+            warp::reply::json(&content::patient_robots(packet_name))
+        });
+    let primary_prompts = packets.and(warp::path::param()).and(warp::path("primary_prompts"))
+        .map(|_, packet_name: String| {
+            warp::reply::json(&content::primary_prompts(packet_name))
+        });
+    let secondary_prompts = packets.and(warp::path::param()).and(warp::path("secondary_prompts"))
+        .map(|_, packet_name: String| {
+            warp::reply::json(&content::secondary_prompts(packet_name))
+        });
+
+    let data_dump = data.and(
+        suspect_notes.or(penalties)
+        .or(card_template_routes)
+        .or(violent_robots).or(patient_robots)
+        .or(primary_prompts).or(secondary_prompts)
+        .or(packets)
+    );
+
+    let routes = inhumanity.or(data_dump).or(elm);
 
     let port: u16 = std::env::var("PORT")
         .map_err(|_| ())

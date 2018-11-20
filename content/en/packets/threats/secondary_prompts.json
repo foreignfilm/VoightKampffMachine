@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Offer two variations of a threat; one that is more dangerous, and one that is less dangerous",
+        "example_question1": "What if a fast-acting poison is involved?",
+        "example_question2": "What if there are other people that you can rely on to help you out? How could they help?"
+    },
+    {
+        "prompt": "Explain how serious a threat is, and why",
+        "example_question1": "What will you lose if you handle situation incorrectly?",
+        "example_question2": "What could lead you to simply accept these losses?"
+    },
+    {
+        "prompt": "Change the suspects’s response to a threat, without changing the threat itself",
+        "example_question1": "What if you can’t do the thing you suggested?",
+        "example_question2": "What is a more/less violent way you could resolve that?"
+    }
+]

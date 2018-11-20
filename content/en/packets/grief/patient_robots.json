@@ -1,0 +1,14 @@
+[
+    {
+        "vulnerability": "Consideration",
+        "vulnerability_description": "You may not say the words “think,” “thought,” “feel,” or “felt.”"
+    },
+    {
+        "vulnerability": "Emotional Vocabulary",
+        "vulnerability_description": "You must describe emotions only using physical descriptions (like “crying” or “sweaty palms”), rather than names (like “sad” or “nervous”)."
+    },
+    {
+        "vulnerability": "Acceptance",
+        "vulnerability_description": "You may only describe good consequences, and you must take credit for them."
+    }
+]

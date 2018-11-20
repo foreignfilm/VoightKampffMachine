@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Describe a threat one or more years in the future",
+        "example_question1": "Your marriage is slowly falling apart, because of financial pressure. How do you keep that from happening?",
+        "example_question2": "The man you testified against in a murder trial will be paroled in eighteen months. How do you prepare?"
+    },
+    {
+        "prompt": "Describe an immediate threat",
+        "example_question1": "You smell smoke, and a baby is crying in the next room. What do you do?",
+        "example_question2": "You are a hostage in a bank robbery. A man in a mask is about to start shooting hostages. What do you do?"
+    },
+    {
+        "prompt": "Describe a minor threat",
+        "example_question1": "You’re late for work; the doors on the train are closing, and the next train is not for ten minutes. What do you do?",
+        "example_question2": "You’re travelling in another country; a police officer pull you over, and explained that there will be no citation, but there is a $5 “convenience” charge. What do you do?"
+    }
+]

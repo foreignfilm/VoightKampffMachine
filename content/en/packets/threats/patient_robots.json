@@ -1,0 +1,14 @@
+[
+    {
+        "vulnerability": "Initiative",
+        "vulnerability_description": "You may not respond to a threat until the investigator explicitly tells you how it would harm you."
+    },
+    {
+        "vulnerability": "Consideration",
+        "vulnerability_description": "You may not describe any response that would take longer than a minute."
+    },
+    {
+        "vulnerability": "Adaptability",
+        "vulnerability_description": "Pick one: you may only describe yourself responding to threats verbally or you may only describe yourself responding to threats physically."
+    }
+]

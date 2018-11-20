@@ -1,0 +1,17 @@
+[
+    {
+        "prompt": "Describe a bad thing that the suspect did to someone else",
+        "example_question1": "When was the last time you really hurt someone?",
+        "example_question2": "Tell me about time, when you were a child, that you were a bad friend"
+    },
+    {
+        "prompt": "Describe an ideal the suspect has failed to live up to",
+        "example_question1": "Tell me about a time when you knew the right thing to do but didn’t do it.",
+        "example_question2": "What is your most hypocritical habit or failing?"
+    },
+    {
+        "prompt": "Describe a bad thing the suspect does routinely",
+        "example_question1": "Each week, you steal something from your office. Sometimes it’s pens. What is it the other times?",
+        "example_question2": "What is the lie you tell most often?"
+    }
+]
